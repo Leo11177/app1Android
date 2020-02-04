@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AndroidMonApplicationTest1</string>
+    <string name="lblNom">NOM :</string>
+    <string name="lblPrenom">PRENOM :</string>
+    <string name="rBtnHomme">HOMME :</string>
+    <string name="rBtnFemme">FEMME :</string>
+    <string name="btnTraiter">TRAITER :</string>
+    <string name="strName">nom</string>
+    <string name="edtNom">nom</string>
+    <string name="strPrenom">prénom</string>
+    <string name="edtPrenom">prénom</string>
+    <string name="mltTxt">Patientez ....</string>
+    <string name="lblTitreAppli">Le jour sans fin</string>
+    <string name="lblSaisirValeur">Saisir une valeur ( 0 à 100 )</string>
+    <string name="btnComparer">Comparer</string>
+    <string name="edtValeur">Entrer une valeur</string>
+    <string name="taRes">à vous de jouer !</string>
+
+</resources>
