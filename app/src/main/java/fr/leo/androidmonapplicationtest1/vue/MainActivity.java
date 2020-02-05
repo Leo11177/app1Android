@@ -1,6 +1,9 @@
 package fr.leo.androidmonapplicationtest1.vue;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText edtPrenom ;
     private TextView mlTxtRes;
     private Button btnTraiter;
+    private Button btnPageSuivante ;
     private ImageView idPicture;
     private Controleur monControleur;
 
@@ -40,8 +44,19 @@ public class MainActivity extends AppCompatActivity {
         edtPrenom = (EditText) findViewById(R.id.edtPrenom);
         mlTxtRes = (TextView) findViewById(R.id.mlTxtRes);
         idPicture = (ImageView) findViewById(R.id.idPicture);
-        ecouterEnvoyer();
+        btnPageSuivante = (Button) findViewById(R.id.btnPageSuivante);
 
+        btnPageSuivante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                  MainActivity.this, SecondeFenetre.class
+                );
+                intent.putExtra("message", "voila le message parvenu de la fenetre 1");
+                startActivityForResult(intent , 1234);
+            }
+        });
+        ecouterEnvoyer();
     }
     public void testClick (View v){
         String maChaine = edtNom.getText().toString();
@@ -75,9 +90,15 @@ public class MainActivity extends AppCompatActivity {
             mlTxtRes.setText("Bonjour Madame " + strNom);
             idPicture.setImageResource(R.drawable.femme);
         }
+    }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-
+        if (requestCode==1234){
+            mlTxtRes.setText("Résultat : " + resultCode);
+        }
     }
 }
